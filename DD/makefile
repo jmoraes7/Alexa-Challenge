@@ -7,13 +7,13 @@ default:
 	latex prop.tex
 
 clean:
-	rm *.aux
-	rm *.log
-	rm *.bbl
-	rm *.dvi
-	rm *.out
-	rm *.blg
+	-rm *.aux
+	-rm *.log
+	-rm *.bbl
+	-rm *.dvi
+	-rm *.out
+	-rm *.blg
 
 cleanall: clean
-	rm *.pdf
+	-rm *.pdf
 	
