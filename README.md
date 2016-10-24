@@ -8,5 +8,7 @@ Make files (by name `makefile`) should take into account bib files in the same d
 go to terminal, cd to the correct directory, and type `make`
 
 Recommended software on OSX:
-  - texShop
-  - bibDesk
+  - MacTex (https://tug.org/mactex/)
+    - latex
+    - texShop
+    - bibDesk
