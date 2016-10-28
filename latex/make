@@ -1,4 +1,0 @@
-latex prop.tex
-latex prop.tex
-bibtex prop
-latex prop.tex

@@ -3,7 +3,9 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \usepackage{url}
+\usepackage{float}
 \usepackage{tikz}
+\usetikzlibrary{fit,positioning,shapes}
 \usetikzlibrary{arrows,automata}
 \usepackage{amsmath}
 \usepackage{ dsfont }
@@ -17,12 +19,55 @@
 \maketitle
 
 \section{Overview}
+The overall design of the conversational module is to break different aspects of the conversational requirements into one of two sections, CC (chit-chat) or DD (data-driven). These reflect our view of the two principal concepts of a conversation: phrasing respones and incorporating relevant data. The CC module is responsible for creating cohesive sentences in response to the user. The DD section is responsible for finding relevant data and facts as required for formulating a response.
+
+\section{CC Overview}
+This module (called ``Chit Chat'', or CC) of the conversational model uses classical conversation response generating models, context and topic tracking, and personalized DMNs \cite{Kumar:2015, Xiong2016} to track information supplied by the user in the conversation. The CC module will also be responsible for merging data from the DD module into a reasonable response format.
+
+\section{CC Architecture}
+
+Text is first run through a classifier to determine whether a sentence requires additional information, this can be accomplished through a mix of classical NLP classifiers plus a search through the user DMN for relevant information. If more information is required the request is forwarded to the DD section, in both cases the text is also passed along to the remaining CC stages.
+
+\noindent
+While the DD section evaluates the phrase for relevant information, the CC DMN references past dialogue to merge with the results obtained from the DD section. 
+
+
+\begin{figure}[H]
+    \centering
+    \resizebox{180pt}{110pt}{
+    \begin{tikzpicture}
+        \tikzstyle{every node} = [draw,shape=rectangle,fill=white]
+    \filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (6,3);
+    \draw (1,0) rectangle (6,3);
+    
+    \node (CCDD) at (2,2.5) {Classifier};
+    \node (DMN) at (4,1.5) {DMN};
+    \node (toDD) at (7,2.5) {DD};
+    \node (fromDD) at (7,0.5) {DD};
+    \node[minimum height=3cm] (DDcheat) at (7,1.5) {DD};
+    \node (merge) at (2,0.5) {Merge};
+
+    \draw [->] (0,2.5) -- (CCDD);
+    \draw [->] (CCDD) -- (toDD);
+    \draw [->] (fromDD) -- (merge);
+    \draw [->] (merge) -- (0,0.5);
+    \draw [->] plot [smooth,tension=.55] coordinates {(CCDD.east) (3.8,2.25) (DMN.north)};
+    \draw [->] plot [smooth,tension=.55] coordinates {(DMN.south) (3.8,0.75) (merge.east)};
+
+    \end{tikzpicture}
+    }
+    
+    \label{DD_design}
+    \caption{CC architecture}
+\end{figure}
+
+\section{DD Overview}
 This module (called ``Data Driven'', or DD) of the conversational model incorporates outside data and information to be injected into the conversation. The module assumes that the user's query has been classified in the previous module to require additional information that the standard conversational net cannot provide. DD makes use of recent advances in Neural Network memory systems and topic classification.
 
 \noindent
 Generally speaking, a bank of Dynamic Memory Networks--first presented in \cite{Kumar:2015} and updated in \cite{Xiong2016}--serve to store information on various topics that the user can query. Topic classification of text has a rich history from SVM's \cite{Joachims1998, Pilaszy2005}, LDA \cite{Blei2001, Zhao2011}, and even CNN's \cite{Kim2014}. The Topic Classifier can implement many of the various classification algorithms once we acquire data on which provides the simplest model with the best results given the input to the DD module. Recent research has even included utilising Convolutional Nets for this process \cite{Kim2014}. It is necessary to bear in mind that the architecture is very ``black-boxed'' and details can arise only once we acquire data on which specific implementations work best in concert.
 
-\section{Architecture}
+\section{DD Architecture}
 The architecture of the Data Driven (DD) section of the conversational system is given by figure~\ref{DD_design}. The topic nodes represent Dynamic Memory Networks (DMNs) \cite{Kumar:2015, Xiong2016}, and the TC node is a topic classifier to dispatch commands to one of the provided topics.
 
 \noindent
@@ -53,7 +98,11 @@ User modules are tailored to a specific user's interests, stored locally for the
 	\filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (9,8);
 	\draw (1,0) rectangle (9,8);
 	
-	\node (TC) at (1,7) {TC};
+	\node (TC) at (2,7) {TC};
+    
+    \node (CC1) at (0,7) {};
+    \node (CC2) at (0,1) {};
+    \node[minimum height=8cm] (CC) at (0,4) {CC};
 	
 	\node (Topic1) at (7,5.5) {Global  Topic 1};
 	\node (TopicE) at (7,4) {Global Topic ...};
@@ -63,9 +112,10 @@ User modules are tailored to a specific user's interests, stored locally for the
 	\node (UTopicE) at (3,4) {User Topic ...};
 	\node (UTopic2) at (3,2.5) {User Topic M};
 	
-	\draw [->] (0,7) -- (TC);
-	\draw (TC) -- (5,7); \draw (5,7) -- (5,1);
-	\draw [->] (5,1) -- (0,1);
+	\draw [->] (CC1) -- (TC);
+	\draw (TC) -- (5,7); 
+    \draw (5,7) -- (5,1);
+	\draw [->] (5,1) -- (CC2);
 	\draw (Topic1) -- (5,5.5);
 	\draw (TopicE) -- (5,4);
 	\draw (TopicN) -- (5,2.5);
