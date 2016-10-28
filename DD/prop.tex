@@ -1,5 +1,5 @@
 
-\documentclass[12pt]{article}
+\documentclass[10pt,twoside,twocolumn]{article}
 \usepackage{geometry} % see geometry.pdf on how to lay out the page. There's lots.
 \usepackage{hyperref}
 \usepackage{url}
@@ -9,33 +9,45 @@
 \usepackage{ dsfont }
 \geometry{a4paper} % or letter or a5paper or ... etc
 
-\title{Data driven section}
-\author{Sumner Hearth}
+\title{Alexa's Double D's}
+\author{Carter Brown \and Esin Durmus \and Abhimanyu Gupta \and Sumner Hearth \and Charles Howland \and Ishaan Jhaveri \and George Li \and Julian Moraes}
 \date{} % delete this line to display the current date
 
 \begin{document}
 \maketitle
 
 \section{Overview}
-This section of the conversational model is meant to retrieve information on current events and interests in such a way as to be most relevant to the current conversation as possible. The model makes use of recent advances in Neural Network memory systems and well as topic classification.
+This module (called "Data Driven," or DD) of the conversational model incorporates outside data and information to be injected into the conversation. The module assumes that the user's query has been classified in the previous module to require additional information that the standard conversational net cannot provide. DD makes use of recent advances in Neural Network memory systems and topic classification.
+
+\noindent
+Generally speaking, a bank of Dynamic Memory Networks--first presented in \cite{Kumar:2015} and updated in \cite{Xiong2016}--serve to store information on various topics that the user can query. Topic classification of text has a rich history from SVM's \cite{Joachims1998, Pilaszy2005}, LDA \cite{Blei2001, Zhao2011}, and even CNN's \cite{Kim2014}. The Topic Classifier can implement many of the various classification algorithms once we acquire data on which provides the simplest model with the best results given the input to the DD module. Recent research has even included utilising Convolutional Nets for this process \cite{Kim2014}. It is necessary to bear in mind that the architecture is very "black-boxed" and details can arise only once we acquire data on which specific implementations work best in concert.
 
 \section{Architecture}
-The architecture of the Data Driven (DD) section of the conversational system is given by figure~\ref{DD_design}. The topic nodes represent Dynamic Memory Networks (DMNs \cite{Kumar:2015ys}), and the TC node is a topic classifier to dispatch commands to one of the provided topics. 
+The architecture of the Data Driven (DD) section of the conversational system is given by figure~\ref{DD_design}. The topic nodes represent Dynamic Memory Networks (DMNs) \cite{Kumar:2015, Xiong2016}, and the TC node is a topic classifier to dispatch commands to one of the provided topics.
 
-\subsection{Data flow}
-Plain english is passed into the Topic Classifier to determine which of the DMNs is most well suited to answer any questions posed, or provide relevant information. Then the english sentence is provided to the relevant DMN whose episodic memory design allows to it retrieve relevant recent events (see information gathering section~\ref{section_info}). This response is returned to the CC module for further processing and formatting.
+\noindent
+After the preprocessing of the previous module, English text from the user's query is passed into the Topic Classifier (TC). The TC determines the topic, i.e. some class, of the user's query. The classes are predefined from training and this section is black-boxed for the sake of this general architecture. However, it seems that \cite{Zhao2011} provides an interesting and potentially fruitful framework for classification on short text segments. Furthermore, for each of these classes from training is a DMN+ \cite{Xiong2016} containing relevant information that we also obtained from training. This training can again be black-boxed for the sake of this design, but different avenues we will investigate include querying Google, Wikipedia, or something else we come up with during training as we see which websites and precreated databases contain the best information.
 
-\subsection{Topics}
-The Topic DMNs can be separated into two groups: Global modules and User modules. 
+\noindent
+Furthermore, there are DMN+'s on current event topics, such as pop culture, politics, etc. The DMN+'s are continuously updated with information. This captures the idea that important information persists through the DMN+ from day-to-day. Since there has been no research on how large the DMN+'s can effectively be, we will have to determine this once we get to actually training and implementing. To accommodate this issue, we propose making our topic classifier more fine-grained if possible. If this is not reasonable, then augmenting DMN+'s with more traditional, "non-neural" QA architectures, such as those found in \cite{Iyyer2014, Yao2014a, Yao2014b}. However, all of these would require a slight implementation change on a technical scale since these architectures require Freebase API, which we had downloaded before Google removed access to it, and has a different underlying representation of the data.
+
+\noindent
+Some work such as \cite{Zhang2016} has brought together a knowledge base with a neural net to produce QA responses before. However, our approach differs in encapsulating the attention mechanism within the DMN+ bank. Furthermore, while \cite{Zhang2016} proposes a method to solve the Out of Vocabulary (OOV) problem, it does not appear to accommodate this problem on queries from the user. To remedy this, we propose overlaying the DMN+ \cite{Xiong2016} with a Pointer Sentinel Mixture Model \cite{Merity2016}. Since the Pointer Sentinel Mixture Model (PSMM) can augment any architecture with a softmax layer, this with the answer module of our softmax, the output of which feeds back into a GRU. Since the PSMM has been merged only with LSTM's before, this new architecture feature should make our DMN+ information retrieval bank more robust.
+
+
+
+\subsection{Topic and DMN Distribution}
+The Topic DMN+'s can be separated into two groups: Global modules and User modules. In figure~\ref{DD_design}, the left side and right side are two different levels of distrubtion--local, and global, respectively.
 
 \noindent
 Global modules are populated with information deemed relevant to all users' interests, such as sports, politics, and culture. These modules can be queried by any DD module for any user and the same responses should be expected (i.e. ``Who won the game on Saturday'' is not user-dependent). As such these modules can be shared among all instances of the DD module.
 
 \noindent
-User modules are tailored to a specific user's interests. The TC module can double as a simple unsupervised learning system as well as a labeled topic classifier in order to determine what topics a specific user may find interesting. These topics can then be researched and added to the list of available topic DMNs.
+User modules are tailored to a specific user's interests, stored locally for the user. The TC module can double as a simple unsupervised learning system as well as a labeled topic classifier in order to determine what topics a specific user may find interesting. Hence, these classifications evolve with the user as they interact more with Alexa. These topics can then be researched and added to the list of available topic DMNs.
 
 \begin{figure}
     \centering
+    \resizebox{180pt}{175}{
     \begin{tikzpicture}
     	\tikzstyle{every node} = [draw,shape=rectangle,fill=white]
 	\filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (9,8);
@@ -62,6 +74,8 @@ User modules are tailored to a specific user's interests. The TC module can doub
 	\draw (UTopic2) -- (5,2.5);
 	
     \end{tikzpicture}
+    }
+    
     \label{DD_design}
     \caption{DD architecture}
 \end{figure}
@@ -72,6 +86,5 @@ These user topics can be populated during a conversation, but also when the user
 
 \bibliographystyle{plain}
 \bibliography{bib} 
-
 
 \end{document}

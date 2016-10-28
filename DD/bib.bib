@@ -1,22 +1,160 @@
 %% This BibTeX bibliography file was created using BibDesk.
 %% http://bibdesk.sourceforge.net/
 
+%% Modified using ShareTex & Mendeley
+
 
 %% Created for Sumner Hearth at 2016-10-24 12:36:02 -0400 
+%% Modified by Carter Brown  on October 27-28
 
 
 %% Saved with string encoding Unicode (UTF-8) 
 
-
-
-@article{Kumar:2015ys,
-	Abstract = {Most tasks in natural language processing can be cast into question answering (QA) problems over language input. We introduce the dynamic memory network (DMN), a neural network architecture which processes input sequences and questions, forms episodic memories, and generates relevant answers. Questions trigger an iterative attention process which allows the model to condition its attention on the inputs and the result of previous iterations. These results are then reasoned over in a hierarchical recurrent sequence model to generate answers. The DMN can be trained end-to-end and obtains state-of-the-art results on several types of tasks and datasets: question answering (Facebook's bAbI dataset), text classification for sentiment analysis (Stanford Sentiment Treebank) and sequence modeling for part-of-speech tagging (WSJ-PTB). The training for these different tasks relies exclusively on trained word vector representations and input-question-answer triplets.},
-	Author = {Ankit Kumar and Ozan Irsoy and Peter Ondruska and Mohit Iyyer and James Bradbury and Ishaan Gulrajani and Victor Zhong and Romain Paulus and Richard Socher},
-	Date-Added = {2016-10-24 16:36:02 +0000},
-	Date-Modified = {2016-10-24 16:36:02 +0000},
-	Eprint = {1506.07285},
-	Month = {06},
-	Title = {Ask Me Anything: Dynamic Memory Networks for Natural Language Processing},
-	Url = {https://arxiv.org/abs/1506.07285},
-	Year = {2015},
-	Bdsk-Url-1 = {https://arxiv.org/abs/1506.07285}}
+@article{Blei2001,
+abstract = {La taille grandissante des collections de documents impose la n{\'{e}}cessit{\'{e}} de disposer de repr{\'{e}}sentation de dimension r{\'{e}}duite, conservant la statistiques des documents. La m{\'{e}}thode pLSI avait {\'{e}}t{\'{e}} propos{\'{e}}e pour mod{\'{e}}liser de mani{\`{e}}re probabiliste l'existence de th{\`{e}}mes latents, mais ce mod{\`{e}}le n'{\'{e}}tait pas r{\'{e}}ellement g{\'{e}}n{\'{e}}ratif -- il ne permettait pas de calculer la probabilit{\'{e}} d'un nouveau document -- et pr{\'{e}}sentait des probl{\`{e}}mes de surapprentissage. Cet article propose LDA, une approche g{\'{e}}n{\'{e}}rative bas{\'{e}}e sur un mod{\`{e}}le bay{\'{e}}sien hi{\'{e}}rarchique {\`{a}} trois niveaux, dans lequel un document est un m{\'{e}}lange discret sur un ensemble de th{\`{e}}mes, et les th{\`{e}}mes sont un m{\'{e}}lange continu sur un ensemble de probabilit{\'{e}}s de th{\`{e}}mes. L'inf{\'{e}}rence approximative des param{\`{e}}tres est effectu{\'{e}}e par application d'un algorithme EM variationnel. LDA pr{\'{e}}sente de nombreuses applications, telles que la mod{\'{e}}lisation de documents, la classification et le flitrage collaboratif. Dans ces applications, LDA pr{\'{e}}sente une perplexit{\'{e}} inf{\'{e}}rieure aux mod{\`{e}}les d'unigrammes, de m{\'{e}}lange d'unigrammes et pLSI.},
+archivePrefix = {arXiv},
+arxivId = {1111.6189v1},
+author = {Blei, David M. and Ng, Andrew Y. and Jordan, Michael I.},
+doi = {10.1162/jmlr.2003.3.4-5.993},
+eprint = {1111.6189v1},
+file = {:D$\backslash$:/Alexa/2070-latent-dirichlet-allocation.pdf:pdf},
+isbn = {9781577352815},
+issn = {1532-4435},
+journal = {Proceedings of the 14th Annual Conference on Neural Information Processing Systems},
+pages = {601--608},
+pmid = {21362469},
+title = {{Latent Dirichlet Allocation}},
+year = {2001}
+}
+@article{Iyyer2014,
+abstract = {Text classification methods for tasks like factoid question answering typically use manually defined string matching rules or bag of words representations. These methods are ineffective when question text contains very few individual words (e.g., named entities) that are indicative of the answer. We introduce a recursive neural network (rnn) model that can reason over such input by modeling textual compositionality. We apply our model, qanta, to a dataset of questions from a trivia competition called quiz bowl. Unlike previous rnn models, qanta learns word and phrase-level representations that combine across sentences to reason about entities. The model outperforms multiple baselines and, when combined with information retrieval methods, rivals the best human players.},
+author = {Iyyer, Mohit and Boyd-Graber, Jordan and Claudino, Leonardo and Socher, Richard and {Daum{\'{e}} III}, Hal and Daum, Hal and III, HD},
+file = {:D$\backslash$:/Alexa/daume14deepqa.pdf:pdf},
+isbn = {9781937284961},
+journal = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+pages = {633--644},
+title = {{A Neural Network for Factoid Question Answering over Paragraphs}},
+url = {http://www.cs.colorado.edu/{~}jbg/docs/2014{\_}emnlp{\_}qb{\_}rnn.pdf{\%}5Cnhttp://www.aclweb.org/anthology/D14-1070},
+year = {2014}
+}
+@article{Joachims1998,
+abstract = {This paper explores the use of Support Vector Machines (SVMs) for learning text classifiers from examples. It analyzes the particular properties of learning with text data and identifies why SVMs are appropriate for this task. Empirical results support the theoretical findings. SVMs achieve substantial improvements over the currently best performing methods and behave robustly over a variety of different learning tasks. Furthermore they are fully automatic, eliminating the need for manual parameter tuning.},
+author = {Joachims, Thorsten},
+doi = {10.1007/BFb0026683},
+file = {:D$\backslash$:/Alexa/Text Categorization with SVM.pdf:pdf},
+isbn = {3540644172},
+issn = {03436993},
+journal = {Machine Learning},
+number = {LS-8 Report 23},
+pages = {137--142},
+pmid = {9934216},
+title = {{1 Introduction 2 Text Categorization 3 Support Vector Machines}},
+url = {http://www.springerlink.com/index/drhq581108850171.pdf},
+volume = {1398},
+year = {1998}
+}
+@article{Kim2014,
+abstract = {We report on a series of experiments with convolutional neural networks (CNN) trained on top of pre-trained word vectors for sentence-level classification tasks. We show that a simple CNN with little hyperparameter tuning and static vec- tors achieves excellent results on multiple benchmarks. Learning task-specific vectors through fine-tuning offers further gains in performance. We additionally propose a simple modification to the architecture to allow for the use of both task-specific and static vectors. The CNN models discussed herein improve upon the state of the art on 4 out of 7 tasks, which include sentiment analysis and question classification},
+archivePrefix = {arXiv},
+arxivId = {arXiv:1408.5882v1},
+author = {Kim, Yoon},
+doi = {10.1109/LSP.2014.2325781},
+eprint = {arXiv:1408.5882v1},
+file = {:D$\backslash$:/Alexa/Text Classification with CNN.pdf:pdf},
+isbn = {9781937284961},
+issn = {10709908},
+journal = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP 2014)},
+pages = {1746--1751},
+title = {{Convolutional Neural Networks for Sentence Classification}},
+url = {http://emnlp2014.org/papers/pdf/EMNLP2014181.pdf},
+year = {2014}
+}
+@article{Kumar:2015,
+abstract = {Most tasks in natural language processing can be cast into question answering (QA) problems over language input. We introduce the dynamic memory network (DMN), a neural network architecture which processes input sequences and questions, forms episodic memories, and generates relevant answers. Questions trigger an iterative attention process which allows the model to condition its attention on the inputs and the result of previous iterations. These results are then reasoned over in a hierarchical recurrent sequence model to generate answers. The DMN can be trained end-to-end and obtains state-of-the-art results on several types of tasks and datasets: question answering (Facebook's bAbI dataset), text classification for sentiment analysis (Stanford Sentiment Treebank) and sequence modeling for part-of-speech tagging (WSJ-PTB). The training for these different tasks relies exclusively on trained word vector representations and input-question-answer triplets.},
+archivePrefix = {arXiv},
+arxivId = {1506.07285},
+author = {Kumar, Ankit and Irsoy, Ozan and Ondruska, Peter and Iyyer, Mohit and Bradbury, James and Gulrajani, Ishaan and Zhong, Victor and Paulus, Romain and Socher, Richard},
+eprint = {1506.07285},
+file = {:D$\backslash$:/NLP Deep Learning/Dynamic Memory Networks for Natural Language Processing.pdf:pdf},
+journal = {Nips},
+title = {{Ask Me Anything: Dynamic Memory Networks for Natural Language Processing}},
+url = {https://arxiv.org/abs/1506.07285},
+year = {2015}
+}
+@article{Merity2016,
+abstract = {Recent neural network sequence models with softmax classifiers have achieved their best language modeling performance only with very large hidden states and large vocabularies. Even then they struggle to predict rare or unseen words even if the context makes the prediction unambiguous. We introduce the pointer sentinel mixture architecture for neural sequence models which has the ability to either reproduce a word from the recent context or produce a word from a standard softmax classifier. Our pointer sentinel-LSTM model achieves state of the art language modeling performance on the Penn Treebank (70.9 perplexity) while using far fewer parameters than a standard softmax LSTM. In order to evaluate how well language models can exploit longer contexts and deal with more realistic vocabularies and larger corpora we also introduce the freely available WikiText corpus.},
+archivePrefix = {arXiv},
+arxivId = {1609.07843},
+author = {Merity, Stephen and Xiong, Caiming and Bradbury, James and Socher, Richard},
+eprint = {1609.07843},
+file = {:D$\backslash$:/Alexa/pointer sentinel mixture models.pdf:pdf},
+title = {{Pointer Sentinel Mixture Models}},
+url = {http://arxiv.org/abs/1609.07843},
+year = {2016}
+}
+@article{Pilaszy2005,
+abstract = {Text categorization is used to automatically assign previously unseen documents to a predefined set of categories. This paper gives a short introduction into text categorization (TC), and describes the most important tasks of a text categorization system. It also focuses on Support Vector Machines (SVMs), the most popular machine learning algorithm used for TC, and gives some justification why SVMs are suitable for this task. After the short introduction some interesting text categorization systems are described briefly, and some open problems are presented.},
+author = {Pil{\'{a}}szy, Istv{\'{a}}n},
+file = {:D$\backslash$:/Alexa/Text Categorization with SVM more recent.pdf:pdf},
+journal = {The Proceedings of the 6th International Symposium of Hungarian Researchers on Computational Intelligence},
+keywords = {information,machine learning,support vector machines,text categorization},
+title = {{Text categorization and support vector machines}},
+volume = {1},
+year = {2005}
+}
+@article{Xiong2016,
+abstract = {Neural network architectures with memory and attention mechanisms exhibit certain reasoning capabilities required for question answering. One such architecture, the dynamic memory network (DMN), obtained high accuracy on a variety of language tasks. However, it was not shown whether the architecture achieves strong results for question answering when supporting facts are not marked during training or whether it could be applied to other modalities such as images. Based on an analysis of the DMN, we propose several improvements to its memory and input modules. Together with these changes we introduce a novel input module for images in order to be able to answer visual questions. Our new DMN+ model improves the state of the art on both the Visual Question Answering dataset and the $\backslash$babi-10k text question-answering dataset without supporting fact supervision.},
+archivePrefix = {arXiv},
+arxivId = {1603.01417},
+author = {Xiong, Caiming and Merity, Stephen and Socher, Richard},
+eprint = {1603.01417},
+file = {:D$\backslash$:/Alexa/DMN+.pdf:pdf},
+journal = {arXiv},
+title = {{Dynamic Memory Networks for Visual and Textual Question Answering}},
+url = {http://arxiv.org/abs/1603.01417},
+year = {2016}
+}
+@article{Yao2014a,
+abstract = {We contrast two seemingly distinct approaches to the task of question answering (QA) using Freebase: one based on information extraction techniques, the other on semantic parsing. Results over the same test-set were collected from two state-of-the-art, open-source systems, then analyzed in consultation with those systems' creators. We conclude that the differences between these technologies, both in task performance, and in how they get there, is not significant. This suggests that the semantic parsing community should target answering more compositional open-domain questions that are beyond the reach of more direct information extraction methods.},
+author = {Yao, Xuchen and Berant, Jonathan and {Van Durme}, Benjamin},
+file = {:D$\backslash$:/Alexa/yao-ie-sp-acl2014.pdf:pdf},
+isbn = {9781941643099},
+issn = {9781941643099},
+journal = {Proceedings of the ACL 2014 Workshop on Semantic Parsing},
+pages = {82--86},
+title = {{Freebase QA: Information Extraction or Semantic Parsing?}},
+year = {2014a}
+}
+@article{Yao2014b,
+abstract = {Answering natural language questions using the Freebase knowledge base has recently been explored as a platform for advancing the state of the art in open domain semantic parsing. Those efforts map questions to sophisticated meaning representations that are then attempted to be matched against viable answer candidates in the knowledge base. Here we show that relatively modest information extraction techniques, when paired with a web-scale corpus, can outperform these sophisticated approaches by roughly 34{\%} relative gain.},
+author = {Yao, Xuchen and {Van Durme}, Benjamin},
+doi = {10.3115/v1/P14-1090},
+file = {:D$\backslash$:/Alexa/yao-jacana-freebase-acl2014.pdf:pdf},
+isbn = {9781937284725},
+journal = {Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics},
+pages = {956--966},
+pmid = {1903356},
+title = {{Information Extraction over Structured Data: Question Answering with Freebase}},
+year = {2014b}
+}
+@article{Zhang2016,
+abstract = {With the rapid growth of knowledge bases (KBs) on the web, how to take full advantage of them becomes increasingly important. Knowledge base-based question answering (KB-QA) is one of the most promising approaches to access the substantial knowledge. Meantime, as the neural network-based (NN-based) methods develop, NN-based KB-QA has already achieved impressive results. However, previous work did not put emphasis on question representation, and the question is converted into a fixed vector regardless of its candidate answers. This simple representation strategy is unable to express the proper information of the question. Hence, we present a neural attention-based model to represent the questions dynamically according to the different focuses of various candidate answer aspects. In addition, we leverage the global knowledge inside the underlying KB, aiming at integrating the rich KB information into the representation of the answers. And it also alleviates the out of vocabulary (OOV) problem, which helps the attention model to represent the question more precisely. The experimental results on WEBQUESTIONS demonstrate the effectiveness of the proposed approach.},
+archivePrefix = {arXiv},
+arxivId = {1606.00979},
+author = {Zhang, Yuanzhe and Liu, Kang and He, Shizhu and Ji, Guoliang and Liu, Zhanyi and Wu, Hua and Zhao, Jun},
+eprint = {1606.00979},
+file = {:D$\backslash$:/Alexa/QA with KB and neural nets.pdf:pdf},
+journal = {ArXiV},
+title = {{Question Answering over Knowledge Base with Neural Attention Combining Global Knowledge Information}},
+url = {http://arxiv.org/abs/1606.00979},
+year = {2016}
+}
+@article{Zhao2011,
+author = {Zhao, Wayne Xin and Jiang, Jing and Weng, Jianshu and He, Jing and Lim, Ee-peng and Yan, Hongfei and Li, Xiaoming},
+file = {:D$\backslash$:/Alexa/twitter topic models.pdf:pdf},
+journal = {Proceedings of the 33rd European conference on Advances in information retrieval (ECIR'11)},
+keywords = {microblogging,topic modeling,twitter},
+pages = {338--349},
+title = {{Comparing Twitter and Traditional Media using Topic Models}},
+year = {2011}
+}
