@@ -1,7 +1,12 @@
 ![Stabl logo](./logo.png)
+
 #Challenge Research- Cornell Neural Team 6
 
+
 Cornell Neural Team 6 has thoroughly researched many papers in the process of creating our architecture proposal. The papers cited have been listed below in order of reference.
+
+Our Proposal: [Paper](https://github.com/Renmusxd/Alexa-Challenge/blob/master/latex/prop.pdf) 
+
 ### Papers 
 
 1. [Latent Dirichlet Allocation](./articles/Latent-dirichlet-allocation.pdf)
