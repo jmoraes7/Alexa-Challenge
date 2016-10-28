@@ -1,6 +1,6 @@
 
 \documentclass[10pt,twoside,twocolumn]{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[left=.75in,top=.75in,right=.75in,bottom=.75in]{geometry} % Document margins
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{float}
@@ -12,7 +12,7 @@
 \geometry{a4paper} % or letter or a5paper or ... etc
 
 \title{Alexa Socialbot}
-\author{Carter Brown$^1$ \and Abhimanyu Gupta$^1$ \and Sumner Hearth$^1$ \and Charles Howland$^1$ \and Ishaan Jhaveri$^1$ \and George Li$^1$ \and Julian Moraes$^1$}
+\author{Carter Brown \and Abhimanyu Gupta \and Sumner Hearth \and Charles Howland \and Ishaan Jhaveri \and George Li \and Julian Moraes}
 \date{%
     $^1$Cornell University\\%
     \today
@@ -22,7 +22,7 @@
 \maketitle
 
 \section{Overview}
-The overall design of the conversational module is to break different aspects of the conversational requirements into one of two sections, CC (chit-chat) or DD (data-driven). These reflect our view of the two principal concepts of a conversation: phrasing respones and incorporating relevant data. The CC module is responsible for creating cohesive sentences in response to the user. The DD section is responsible for finding relevant data and facts as required for formulating a response.
+The overall design of the conversational model is to break different aspects of the conversational requirements into one of two sections: CC (chit-chat) or DD (data-driven). These reflect our view of the two principal concepts of a conversation: phrasing responses and incorporating relevant data. The CC module is responsible for creating cohesive sentences in response to the user. The DD section is responsible for finding relevant data and facts as required for formulating a response.
 
 \section{CC Overview}
 This module (called ``Chit Chat'', or CC) of the conversational model uses classical conversation response generating models, context and topic tracking, and personalized DMNs \cite{Kumar:2015, Xiong2016} to track information supplied by the user in the conversation. The CC module will also be responsible for merging data from the DD module into a reasonable response format.
@@ -65,7 +65,7 @@ While the DD section evaluates the phrase for relevant information, the CC DMN r
 \end{figure}
 
 \section{DD Overview}
-This module (called ``Data Driven'', or DD) of the conversational model incorporates outside data and information to be injected into the conversation. The module assumes that the user's query has been classified in the previous module to require additional information that the standard conversational net cannot provide. DD makes use of recent advances in Neural Network memory systems and topic classification.
+The DD module (``Data Driven'') incorporates outside data and information into the conversation. The module assumes that the user's query has been classified in the CC module to require additional information that the standard conversational net cannot provide. DD makes use of recent advances in Neural Network memory systems and topic classification.
 
 \noindent
 Generally speaking, a bank of Dynamic Memory Networks--first presented in \cite{Kumar:2015} and updated in \cite{Xiong2016}--serve to store information on various topics that the user can query. Topic classification of text has a rich history from SVM's \cite{Joachims1998, Pilaszy2005}, LDA \cite{Blei2001, Zhao2011}, and even CNN's \cite{Kim2014}. The Topic Classifier can implement many of the various classification algorithms once we acquire data on which provides the simplest model with the best results given the input to the DD module. Recent research has even included utilising Convolutional Nets for this process \cite{Kim2014}. It is necessary to bear in mind that the architecture is very ``black-boxed'' and details can arise only once we acquire data on which specific implementations work best in concert.
@@ -95,7 +95,7 @@ User modules are tailored to a specific user's interests, stored locally for the
 
 \begin{figure}
     \centering
-    \resizebox{180pt}{175pt}{
+    \resizebox{140pt}{135pt}{
     \begin{tikzpicture}
     	\tikzstyle{every node} = [draw,shape=rectangle,fill=white]
 	\filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (9,8);
