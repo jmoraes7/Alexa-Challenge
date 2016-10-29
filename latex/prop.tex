@@ -22,18 +22,20 @@
 \maketitle
 
 \section{Overview}
-The overall design of the conversational model is to break different aspects of the conversational requirements into one of two sections: CC (chit-chat) or DD (data-driven). These reflect our view of the two principal concepts of a conversation: phrasing responses and incorporating relevant data. The CC module is responsible for creating cohesive sentences in response to the user. The DD section is responsible for finding relevant data and facts as required for formulating a response.
+The overall design of the conversational module is to break different aspects of the conversational requirements into one of two sections: CC (chit-chat) or DD (data-driven). These reflect our view of the two principal components of a conversation: phrasing responses and incorporating relevant data. The CC module is responsible for creating cohesive sentences in response to the user. The DD section is responsible for finding relevant data and facts as required for formulating a response.
 
 \section{CC Overview}
-This module (called ``Chit Chat'', or CC) of the conversational model uses classical conversation response generating models, context and topic tracking, and personalized DMNs \cite{Kumar:2015, Xiong2016} to track information supplied by the user in the conversation. The CC module will also be responsible for merging data from the DD module into a reasonable response format.
+This module, called "Chit Chat" (CC) serves to generate context-sensitive responses to user queries to engage users and drive continued discourse. The model builds off basic seq2seq models such as \cite{Vinyals2015} to more sophisticated architectures such as the DCGM \cite{Sordoni2015}, TACNTN \cite{Wu}, vector embeddings of users' personas and sentiments \cite{Li2016a}, and experimenting with reinforcement learning in the network training \cite{Zaremba2015, Williams2016, Li2016b}. There is a local DMN \cite{Kumar:2015, Xiong2016} to keep track of recent information in the conversation that can be called quickly. Furthermore, this component will provide a vector embedding framework for phrasing responses when we must query the DD module and inject information into the conversation.
 
 \section{CC Architecture}
 
-Text is first run through a classifier to determine whether a sentence requires additional information, this can be accomplished through a mix of classical NLP classifiers plus a search through the user DMN for relevant information. If more information is required the request is forwarded to the DD section, in both cases the text is also passed along to the remaining CC stages.
+Text first runs through a classifier to determine whether a proper response to the query requires information "outside" the conversation, i.e. real-world info not recently mentioned in the conversation. This can be accomplished by a mix of classical NLP classifiers coupled with a search through the local user DMN present in this module for a relevant answer. If more information is required, then it is passed onto the DD module.
 
 \noindent
-While the DD section evaluates the phrase for relevant information, the CC DMN references past dialogue to merge with the results obtained from the DD section. 
+In both cases, the flow of information returns to the CC module to be merged together. If classic information retrieval among tuples a la Freebase API is effective, then we will return that answer as has been solved in \cite{Iyyer2014, Yao2014a, Yao2014b}. On the other hand, accessing a response from our DD memory bank in figure~\ref{DD_design}, requires more innovative integration of information.
 
+\noindent
+This is where our vector embedding comes into play!
 
 \begin{figure}[H]
     \centering
