@@ -81,6 +81,32 @@ title = {{Ask Me Anything: Dynamic Memory Networks for Natural Language Processi
 url = {https://arxiv.org/abs/1506.07285},
 year = {2015}
 }
+@article{Li2016a,
+abstract = {We present persona-based models for handling the issue of speaker consistency in neural response generation. A speaker model encodes personas in distributed embeddings that capture individual characteristics such as background information and speaking style. A dyadic speaker-addressee model captures properties of interactions between two interlocutors. Our models yield qualitative performance improvements in both perplexity and BLEU scores over baseline sequence-to-sequence models, with similar gain in speaker consistency as measured by human judges.},
+archivePrefix = {arXiv},
+arxivId = {1603.06155},
+author = {Li, Jiwei and Galley, Michel and Brockett, Chris and Gao, Jianfeng and Dolan, Bill},
+eprint = {1603.06155},
+file = {:D$\backslash$:/Alexa/persona-based convo model.pdf:pdf},
+journal = {Acl},
+pages = {10},
+title = {{A Persona-Based Neural Conversation Model}},
+url = {http://arxiv.org/abs/1603.06155},
+year = {2016a}
+}
+@article{Li2016b,
+abstract = {Recent neural models of dialogue generation offer great promise for generating responses for conversational agents, but tend to be shortsighted, predicting utterances one at a time while ignoring their influence on future outcomes. Modeling the future direction of a dialogue is crucial to generating coherent, interesting dialogues, a need which led traditional NLP models of dialogue to draw on reinforcement learning. In this paper, we show how to integrate these goals, applying deep reinforcement learning to model future reward in chatbot dialogue. The model simulates dialogues between two virtual agents, using policy gradient methods to reward sequences that display three useful conversational properties: informativity (non-repetitive turns), coherence, and ease of answering (related to forward-looking function). We evaluate our model on diversity, length as well as with human judges, showing that the proposed algorithm generates more interactive responses and manages to foster a more sustained conversation in dialogue simulation. This work marks a first step towards learning a neural conversational model based on the long-term success of dialogues.},
+archivePrefix = {arXiv},
+arxivId = {1606.01541},
+author = {Li, Jiwei and Monroe, Will and Ritter, Alan and Jurafsky, Dan},
+eprint = {1606.01541},
+file = {:D$\backslash$:/Alexa/jurafsky RL.pdf:pdf},
+journal = {arXiv},
+number = {2},
+title = {{Deep Reinforcement Learning for Dialogue Generation}},
+url = {http://arxiv.org/abs/1606.01541},
+year = {2016b}
+}
 @article{Merity2016,
 abstract = {Recent neural network sequence models with softmax classifiers have achieved their best language modeling performance only with very large hidden states and large vocabularies. Even then they struggle to predict rare or unseen words even if the context makes the prediction unambiguous. We introduce the pointer sentinel mixture architecture for neural sequence models which has the ability to either reproduce a word from the recent context or produce a word from a standard softmax classifier. Our pointer sentinel-LSTM model achieves state of the art language modeling performance on the Penn Treebank (70.9 perplexity) while using far fewer parameters than a standard softmax LSTM. In order to evaluate how well language models can exploit longer contexts and deal with more realistic vocabularies and larger corpora we also introduce the freely available WikiText corpus.},
 archivePrefix = {arXiv},
@@ -92,6 +118,22 @@ title = {{Pointer Sentinel Mixture Models}},
 url = {http://arxiv.org/abs/1609.07843},
 year = {2016}
 }
+@article{Pennington2014,
+abstract = {Recent methods for learning vector space representations of words have succeeded in capturing fine-grained semantic and syntactic regularities using vector arith- metic, but the origin of these regularities has remained opaque. We analyze and make explicit the model properties needed for such regularities to emerge in word vectors. The result is a new global log- bilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods. Our model efficiently leverages statistical information by training only on the nonzero elements in a word-word co- occurrence matrix, rather than on the en- tire sparse matrix or on individual context windows in a large corpus. On a recent word analogy task our model obtains 75{\%} accuracy, an improvement of 11{\%} over Mikolov et al. (2013). It also outperforms related word vector models on similarity tasks and named entity recognition.},
+archivePrefix = {arXiv},
+arxivId = {1504.06654},
+author = {Pennington, Jeffrey and Socher, Richard and Manning, Christopher D},
+doi = {10.3115/v1/D14-1162},
+eprint = {1504.06654},
+file = {:D$\backslash$:/Alexa/glove.pdf:pdf},
+isbn = {9781937284961},
+issn = {10495258},
+journal = {Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing},
+pages = {1532--1543},
+pmid = {1710995},
+title = {{GloVe: Global Vectors for Word Representation}},
+year = {2014}
+}
 @article{Pilaszy2005,
 abstract = {Text categorization is used to automatically assign previously unseen documents to a predefined set of categories. This paper gives a short introduction into text categorization (TC), and describes the most important tasks of a text categorization system. It also focuses on Support Vector Machines (SVMs), the most popular machine learning algorithm used for TC, and gives some justification why SVMs are suitable for this task. After the short introduction some interesting text categorization systems are described briefly, and some open problems are presented.},
 author = {Pil{\'{a}}szy, Istv{\'{a}}n},
@@ -101,6 +143,53 @@ keywords = {information,machine learning,support vector machines,text categoriza
 title = {{Text categorization and support vector machines}},
 volume = {1},
 year = {2005}
+}
+@article{Sordoni2015,
+abstract = {We present a novel response generation sys-tem that can be trained end to end on large quantities of unstructured Twitter conversa-tions. A neural network architecture is used to address sparsity issues that arise when in-tegrating contextual information into classic statistical models, allowing the system to take into account previous dialog utterances. Our dynamic-context generative models show con-sistent gains over both context-sensitive and non-context-sensitive Machine Translation and Information Retrieval baselines.},
+archivePrefix = {arXiv},
+arxivId = {1506.06714},
+author = {Sordoni, Alessandro and Galley, Michel and Auli, Michael and Brockett, Chris and Ji, Yangfeng and Mitchell, Margaret and Nie, Jian-Yun and Gao, Jianfeng and Dolan, William B.},
+eprint = {1506.06714},
+file = {:D$\backslash$:/Alexa/context-sensitive generation of conversational responses.pdf:pdf},
+isbn = {9781941643495},
+journal = {Naacl-2015},
+pages = {196--205},
+title = {{A Neural Network Approach to Context-Sensitive Generation of Conversational Responses}},
+year = {2015}
+}
+@article{Vinyals2015,
+abstract = {Conversational modeling is an important task in natural language understanding and machine in-telligence. Although previous approaches ex-ist, they are often restricted to specific domains (e.g., booking an airline ticket) and require hand-crafted rules. In this paper, we present a sim-ple approach for this task which uses the recently proposed sequence to sequence framework. Our model converses by predicting the next sentence given the previous sentence or sentences in a conversation. The strength of our model is that it can be trained end-to-end and thus requires much fewer hand-crafted rules. We find that this straightforward model can generate simple con-versations given a large conversational training dataset. Our preliminary suggest that, despite op-timizing the wrong objective function, the model is able to extract knowledge from both a domain specific dataset, and from a large, noisy, and gen-eral domain dataset of movie subtitles. On a domain-specific IT helpdesk dataset, the model can find a solution to a technical problem via conversations. On a noisy open-domain movie transcript dataset, the model can perform simple forms of common sense reasoning. As expected, we also find that the lack of consistency is a com-mon failure mode of our model.},
+archivePrefix = {arXiv},
+arxivId = {1506.05869v2},
+author = {Vinyals, Orioi and Le, Quoc V.},
+eprint = {1506.05869v2},
+file = {:D$\backslash$:/Alexa/neural conversational model.pdf:pdf},
+journal = {arXiv},
+keywords = {chatbots,dialog systems,neural networks},
+title = {{A Neural Conversational Model}},
+volume = {37},
+year = {2015}
+}
+@article{Williams2016,
+abstract = {This paper presents a model for end-to-end learning of task-oriented dialog systems. The main component of the model is a recurrent neural network (an LSTM), which maps from raw dialog history directly to a distribution over system actions. The LSTM automatically infers a representation of dialog history, which relieves the system developer of much of the manual feature engineering of dialog state. In addition, the developer can provide software that expresses business rules and provides access to programmatic APIs, enabling the LSTM to take actions in the real world on behalf of the user. The LSTM can be optimized using supervised learning (SL), where a domain expert provides example dialogs which the LSTM should imitate; or using reinforcement learning (RL), where the system improves by interacting directly with end users. Experiments show that SL and RL are complementary: SL alone can derive a reasonable initial policy from a small number of training dialogs; and starting RL optimization with a policy trained with SL substantially accelerates the learning rate of RL.},
+archivePrefix = {arXiv},
+arxivId = {1606.01269},
+author = {Williams, Jason D. and Zweig, Geoffrey},
+doi = {arXiv:1504.01391},
+eprint = {1606.01269},
+file = {:D$\backslash$:/Alexa/end to end lstm-based dialogue with supervised and reinforcement learning.pdf:pdf},
+journal = {arXiv},
+title = {{End-to-end LSTM-based dialog control optimized with supervised and reinforcement learning}},
+url = {http://arxiv.org/abs/1606.01269},
+year = {2016}
+}
+@article{Wu,
+archivePrefix = {arXiv},
+arxivId = {arXiv:1605.00090v3},
+author = {Wu, Yu},
+eprint = {arXiv:1605.00090v3},
+file = {:D$\backslash$:/Alexa/topic clues for response selection for retrieval-based chatbots.pdf:pdf},
+title = {{Response Selection with Topic Clues for Retrieval-based Chatbots}}
 }
 @article{Xiong2016,
 abstract = {Neural network architectures with memory and attention mechanisms exhibit certain reasoning capabilities required for question answering. One such architecture, the dynamic memory network (DMN), obtained high accuracy on a variety of language tasks. However, it was not shown whether the architecture achieves strong results for question answering when supporting facts are not marked during training or whether it could be applied to other modalities such as images. Based on an analysis of the DMN, we propose several improvements to its memory and input modules. Together with these changes we introduce a novel input module for images in order to be able to answer visual questions. Our new DMN+ model improves the state of the art on both the Visual Question Answering dataset and the $\backslash$babi-10k text question-answering dataset without supporting fact supervision.},
@@ -136,6 +225,19 @@ pages = {956--966},
 pmid = {1903356},
 title = {{Information Extraction over Structured Data: Question Answering with Freebase}},
 year = {2014b}
+}
+@article{Zaremba2015,
+abstract = {The expressive power of a machine learning model is closely related to the num-ber of sequential computational steps it can learn. For example, Deep Neural Networks have been more successful than shallow networks because they can per-form a greater number of sequential computational steps (each highly parallel). The Neural Turing Machine (NTM) [8] is a model that can compactly express an even greater number of sequential computational steps, so it is even more powerful than a DNN. Its memory addressing operations are designed to be differentiable; thus the NTM can be trained with backpropagation. While differentiable memory is relatively easy to implement and train, it necessi-tates accessing the entire memory content at each computational step. This makes it difficult to implement a fast NTM. In this work, we use the Reinforce algorithm to learn where to access the memory, while using backpropagation to learn what to write to the memory. We call this model the RL-NTM. Reinforce allows our model to access a constant number of memory cells at each computational step, so its implementation can be faster. The RL-NTM is the first model that can, in principle, learn programs of unbounded running time. We successfully trained the RL-NTM to solve a number of algorithmic tasks that are simpler than the ones solvable by the fully differentiable NTM. As the RL-NTM is a fairly intricate model, we needed a method for verifying the correctness of our implementation. To do so, we developed a simple technique for numerically checking arbitrary implementations of models that use Reinforce, which may be of independent interest.},
+archivePrefix = {arXiv},
+arxivId = {arXiv:1505.00521v1},
+author = {Zaremba, Wojciech and Sutskever, Ilya},
+eprint = {arXiv:1505.00521v1},
+file = {:D$\backslash$:/Alexa/reinforcement learning--neural turing machines.pdf:pdf},
+isbn = {9781424438617},
+journal = {Arxiv},
+pages = {1--14},
+title = {{Reinforcement Learning Neural Turing Machines}},
+year = {2015}
 }
 @article{Zhang2016,
 abstract = {With the rapid growth of knowledge bases (KBs) on the web, how to take full advantage of them becomes increasingly important. Knowledge base-based question answering (KB-QA) is one of the most promising approaches to access the substantial knowledge. Meantime, as the neural network-based (NN-based) methods develop, NN-based KB-QA has already achieved impressive results. However, previous work did not put emphasis on question representation, and the question is converted into a fixed vector regardless of its candidate answers. This simple representation strategy is unable to express the proper information of the question. Hence, we present a neural attention-based model to represent the questions dynamically according to the different focuses of various candidate answer aspects. In addition, we leverage the global knowledge inside the underlying KB, aiming at integrating the rich KB information into the representation of the answers. And it also alleviates the out of vocabulary (OOV) problem, which helps the attention model to represent the question more precisely. The experimental results on WEBQUESTIONS demonstrate the effectiveness of the proposed approach.},
