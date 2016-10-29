@@ -28,3 +28,4 @@ Our Proposal: [Paper](https://github.com/Renmusxd/Alexa-Challenge/blob/master/la
 Using Generative Hierarchical Neural Network Models](./research/1507.04808v3.pdf)
 17. [A Neural Conversational Model](./research/1506.05869v3.pdf)
 18. [Response Selection with Topic Clues for Retrieval-based Chatbots](./research/1605.00090v3.pdf)
+19. [Deep Reinforcement Learning for Dialogue Generation](./research/1606.01541v4.pdf)
