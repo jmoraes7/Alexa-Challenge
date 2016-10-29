@@ -35,7 +35,7 @@ Text first runs through a classifier to determine whether a proper response to t
 In both cases, the flow of information returns to the CC module to be merged together. If classic information retrieval among tuples a la Freebase API is effective, then we will return that answer as has been solved in \cite{Iyyer2014, Yao2014a, Yao2014b}. On the other hand, accessing a response from our DD memory bank in Figure~2, requires more innovative integration of information.
 
 \noindent
-This is where our choice of vector embedding will effect our design. This module of the program will be one of two possibilities. 1) an in-house embedding utilizing PSMM \cite{Merity2016} in conjunction with a specialized LSTM encoder-decoder network ending with a softmax. 2) a form of the TACNTN \cite{Wu} that is based off a CNN architecture and will provide a different means to capture word order in word sequences.
+This is where our choice of vector embedding will affect our design. This module of the program will be one of two possibilities. 1) an in-house embedding utilizing PSMM \cite{Merity2016} in conjunction with a specialized LSTM encoder-decoder network ending with a softmax. 2) a form of the TACNTN \cite{Wu} that is based off a CNN architecture and will provide a different means to capture word order in word sequences.
 
 \noindent
 Additionally, a context-sensitive and user-focused model must take user idiosyncrasies and preferences into account when generating responses. To this end, we propose injecting representative user persona and sentiment vectors into the hidden layer computation of our DCGM. 
