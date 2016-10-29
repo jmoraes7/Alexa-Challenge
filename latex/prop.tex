@@ -38,7 +38,7 @@ In both cases, the flow of information returns to the CC module to be merged tog
 This is where our choice of vector embedding will effect our design. This module of the program will be one of two possibilities. 1) an in-house embedding utilizing PSMM \cite{Merity2016} in conjunction with a specialized LSTM encoder-decoder network ending with a softmax. 2) a form of the TACNTN \cite{Wu} that is based off a CNN architecture and will provide a different means to capture word order in word sequences.
 
 \noindent
-Additionally, a context-sensitive and user-focused model must 
+Additionally, a context-sensitive and user-focused model must take user idiosyncrasies and preferences into account when generating responses. To this end, we propose injecting representative user persona and sentiment vectors into the hidden layer computation of our DCGM. 
 
 \begin{figure}[H]
     \centering
