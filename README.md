@@ -6,7 +6,7 @@
 Cornell Neural Team 6 has thoroughly researched many papers in the process of creating our architecture proposal. The papers cited have been listed below in order of reference.
 
 Our Proposal: [Paper](https://github.com/Renmusxd/Alexa-Challenge/blob/master/latex/prop.pdf) 
-
+Example Word Embedding: [Embedding](./research/statement_embedding.pdf)
 ### Papers 
 
 1. [Latent Dirichlet Allocation](./research/Latent-dirichlet-allocation.pdf)
