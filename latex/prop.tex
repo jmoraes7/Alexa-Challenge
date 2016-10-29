@@ -60,7 +60,7 @@ While the DD section evaluates the phrase for relevant information, the CC DMN r
     \end{tikzpicture}
     }
     
-    \label{DD_design}
+    \label{CCdesign}
     \caption{CC architecture}
 \end{figure}
 
@@ -71,7 +71,7 @@ The Data Driven module (DD) incorporates outside data and information into the c
 A bank of Dynamic Memory Networks (DMNs) \cite{Kumar:2015, Xiong2016} store information on various topics that the user can query. A Topic Classifier (TC) chooses which DMN to use, and will be implemented using SVMs\cite{Joachims1998, Pilaszy2005}, LDA\cite{Blei2001, Zhao2011}, or possibly CNNs\cite{Kim2014}. Note that the architecture is ``black-boxed'' and specific implementation details will be determined through iterative testing (see Methodology).
 
 \section{DD Architecture}
-The architecture of the Data Driven (DD) section of the conversational system is given by figure~\ref{DD_design}. The topic nodes represent Dynamic Memory Networks (DMNs) \cite{Kumar:2015, Xiong2016}, and the TC node is a topic classifier to dispatch commands to one of the provided topics.
+The architecture of the Data Driven (DD) section of the conversational system is given by figure~2. The topic nodes represent Dynamic Memory Networks (DMNs) \cite{Kumar:2015, Xiong2016}, and the TC node is a topic classifier to dispatch commands to one of the provided topics.
 
 \noindent
 After the preprocessing of the previous module, English text from the user's query is passed into the Topic Classifier (TC). The TC determines the topic, i.e. some class, of the user's query. The classes are predefined from training and this section is black-boxed for the sake of this general architecture. However, it seems that \cite{Zhao2011} provides an interesting and potentially fruitful framework for classification on short text segments. Furthermore, for each of these classes from training is a DMN+ \cite{Xiong2016} containing relevant information that we also obtained from training. This training can again be black-boxed for the sake of this design, but different avenues we will investigate include querying Google, Wikipedia, or something else we come up with during training as we see which websites and precreated databases contain the best information.
@@ -85,7 +85,7 @@ Some work such as \cite{Zhang2016} has brought together a knowledge base with a 
 
 
 \subsection{Topic and DMN Distribution}
-The Topic DMN+'s can be separated into two groups: Global modules and User modules. In figure~\ref{DD_design}, the left side and right side are two different levels of distrubtion--local, and global, respectively.
+The Topic DMN+'s can be separated into two groups: Global modules and User modules. In figure~2, the left side and right side are two different levels of distrubtion--local, and global, respectively.
 
 \noindent
 Global modules are populated with information deemed relevant to all users' interests, such as sports, politics, and culture. These modules can be queried by any DD module for any user and the same responses should be expected (i.e. ``Who won the game on Saturday'' is not user-dependent). As such these modules can be shared among all instances of the DD module.
@@ -95,41 +95,41 @@ User modules are tailored to a specific user's interests, stored locally for the
 
 \begin{figure}
     \centering
-    \resizebox{140pt}{135pt}{
+    \resizebox{160pt}{135pt}{
     \begin{tikzpicture}
     	\tikzstyle{every node} = [draw,shape=rectangle,fill=white]
-	\filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (9,8);
-	\draw (1,0) rectangle (9,8);
+	\filldraw[fill=blue!40!white, draw=black, opacity=0.2] (1,0) rectangle (9,6);
+	\draw (1,0) rectangle (9,6);
 	
-	\node (TC) at (2,7) {TC};
+	\node (TC) at (2,5) {TC};
     
-    \node (CC1) at (0,7) {};
+    \node (CC1) at (0,5) {};
     \node (CC2) at (0,1) {};
-    \node[minimum height=8cm] (CC) at (0,4) {CC};
+    \node[minimum height=6cm] (CC) at (0,3) {CC};
 	
-	\node (Topic1) at (7,5.5) {Global  Topic 1};
-	\node (TopicE) at (7,4) {Global Topic ...};
-	\node (TopicN) at (7,2.5) {Global Topic N};
+	\node (Topic1) at (7,4) {Global  Topic 1};
+	\node (TopicE) at (7,3) {Global Topic ...};
+	\node (TopicN) at (7,2) {Global Topic N};
 	
-	\node (UTopic1) at (3,5.5) {User Topic 1};
-	\node (UTopicE) at (3,4) {User Topic ...};
-	\node (UTopic2) at (3,2.5) {User Topic M};
+	\node (UTopic1) at (3,4) {User Topic 1};
+	\node (UTopicE) at (3,3) {User Topic ...};
+	\node (UTopic2) at (3,2) {User Topic M};
 	
 	\draw [->] (CC1) -- (TC);
-	\draw (TC) -- (5,7); 
-    \draw (5,7) -- (5,1);
+	\draw (TC) -- (5,5); 
+    \draw (5,5) -- (5,1);
 	\draw [->] (5,1) -- (CC2);
-	\draw (Topic1) -- (5,5.5);
-	\draw (TopicE) -- (5,4);
-	\draw (TopicN) -- (5,2.5);
-	\draw (UTopic1) -- (5,5.5);
-	\draw (UTopicE) -- (5,4);
-	\draw (UTopic2) -- (5,2.5);
+	\draw (Topic1) -- (5,4);
+	\draw (TopicE) -- (5,3);
+	\draw (TopicN) -- (5,2);
+	\draw (UTopic1) -- (5,4);
+	\draw (UTopicE) -- (5,3);
+	\draw (UTopic2) -- (5,2);
 	
     \end{tikzpicture}
     }
     
-    \label{DD_design}
+    \label{DDdesign}
     \caption{DD architecture}
 \end{figure}
 
